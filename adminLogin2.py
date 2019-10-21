@@ -22,23 +22,23 @@ class adminLogin:
         # background_label = tk.Label(root, image=background_image)
         # background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
-        # to arrage the widgets
+        # to arrage the widgets  #0a9ead
         shadowFrame = tk.Frame(canvas, bg='#888', height='200', width='300')
         shadowFrame.place(relx=0.505, rely=0.205,
                         width=300, height=300, anchor='n')
-        frame = tk.Frame(canvas, bg='#0a9ead', height='200', width='300')
+        frame = tk.Frame(canvas, bg='#fff', height='200', width='300')
         frame.place(relx=0.5, rely=0.2, width=300, height=300, anchor='n')
         self.shadowFrame = shadowFrame
         self.frame = frame
 
-        #frame heading
-        labelHead = tk.Label(frame, text='ADMIN', bg='#1f4191', fg="#fff")
+        #frame heading  #1f4191
+        labelHead = tk.Label(frame, text='ADMIN', bg='#000', fg="#fff")
         labelHead.config(font=("Courier", 24))
         labelHead.pack(fill='x')
         self.labelHead = labelHead
 
         #label of fails
-        failLabel = tk.Label(frame, text='Enter Your Credentials')
+        failLabel = tk.Label(frame, text='Enter Your Credentials',bg ='#fff')
         failLabel.config(font=("Courier", 12))
         failLabel.pack(fill='x')
         self.failLabel = failLabel
@@ -61,8 +61,8 @@ class adminLogin:
         adminPassword.bind('<Return>', lambda event: self.loginFunc())
         adminPassword.place(relx=0.05, rely=0.5, relwidth=0.9, height=40)
 
-        # button for login
-        loginButton = tk.Button(frame, text='LOGIN', cursor='hand2', width='50',bg='#ff1900', fg='#fff', command= self.loginFunc)
+        # button for login   #ff1900
+        loginButton = tk.Button(frame, text='LOGIN', cursor='hand2', width='50',bg='#000', fg='#fff', command= self.loginFunc)
         loginButton.config(font=("Courier", 16))
         loginButton.place(relx=0.1, rely=0.8, relwidth=0.8, relheight=0.1)
 
@@ -91,7 +91,7 @@ class adminLogin:
             if(username == 'admin' and password == 'admin'):
                 print('SUccefully Logged in')
                 self.failLabel.config(text='Successfully Logged in ...',
-                                fg='#20b31b')
+                                      fg='green')
             else:
                 print('Invalid credential')
                 self.failLabel.config(text='Wrong Credentials !', fg='red')
