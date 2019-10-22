@@ -2,6 +2,8 @@ import tkinter as tk
 
 class adminLogin:
     def __init__(self):
+
+        self.cred = {'admin':'admin'}
         root = tk.Tk()
 
         # to set the window to a fixed height and width
@@ -44,15 +46,16 @@ class adminLogin:
         self.failLabel = failLabel
 
         # placing text box and label for username
-        adminUserName = tk.Entry(frame, bg="#ffffff", justify='center')
+        adminUserName = tk.Entry(frame, bg="#ffffff", justify='center', highlightcolor='blue')
         adminPassword = tk.Entry(frame, bg="#ffffff", justify='center', show='*')
         self.adminUserName = adminUserName
         self.adminPassword = adminPassword
         
         adminUserName.config(font=("Courier", 18))
         adminUserName.insert(0, 'Username')
-        adminUserName.bind('<ButtonRelease>',self.clear)
+        # adminUserName.bind('<ButtonRelease>',self.clear)
         adminUserName.bind('<Return>', lambda event: self.loginFunc())
+        adminUserName.bind('<FocusIn>',self.clear)
         adminUserName.place(relx=0.05, rely=0.3, relwidth=0.9, height=40)
 
         adminPassword.config(font=("Courier", 18))
@@ -76,6 +79,9 @@ class adminLogin:
         BackToUserLogin.config(font = ('Courier',13))
         BackToUserLogin.pack(side='top')
 
+        #test for momving to new window
+        newFrame = tk.Frame(root,bg = 'red')
+        self.newFrame = newFrame
         root.mainloop()
 
     # Function for login verification ...
@@ -88,7 +94,8 @@ class adminLogin:
             print('Empty field')
             self.failLabel.config(text='Fields cannot be empty', fg='red')
         else:
-            if(username == 'admin' and password == 'admin'):
+            # if(username == 'admin' and password == 'admin'):
+            if(username in self.cred.keys() and self.cred[username] == password):
                 print('SUccefully Logged in')
                 self.failLabel.config(text='Successfully Logged in ...',
                                       fg='green')
@@ -100,13 +107,15 @@ class adminLogin:
 
     # to clear the fields before user input
     def clear(self,event):
-        print('....')
+        print('....',event.type)
         event.widget.delete(0, len(event.widget.get()))
+        event.widget.config(bd=5)
 
     #function to clear the window
     def clearWin(self):
         print('all clear')
         self.canvas.destroy()
+        self.newFrame.place(relwidth = 1,relheight = 1)
 
     # def __del__(self):
     #     print('Destructor called')
