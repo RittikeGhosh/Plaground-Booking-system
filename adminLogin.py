@@ -113,7 +113,6 @@ class main:
         winWidth = self.canvas.winfo_width()
         dur = 1
         sub = dur/winWidth
-        print(sub)
         i = winWidth
         while(i >= 0):
             i = i/1.1 - 1
@@ -121,11 +120,19 @@ class main:
             self.root.update()
             time.sleep(sub)
         self.canvas.place(relx=-1)
-        o = alp.main(self.root)
+        alp.main(self.root)
 
     # def __del__(self):
     #     print('Destructor called')
     #     self.canvas.destroy()
 
 
+root = tk.Tk()
+root.geometry('1000x800+400+50')
+root.title('OnlinePlaygroundBookingSystem')
+
+o = main(root)
+
+print('hello')
+root.mainloop()
 
