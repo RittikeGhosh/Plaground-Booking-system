@@ -16,7 +16,7 @@ class main:
         self.canvas = canvas
 
         #set backgrounf image ###### not working  ################
-        # backgroundImage = tk.PhotoImage(file = './images/stadium.jpg')
+        # backgroundImage = tk.PhotoImage(file = './images/stadium.png')
         # backgroundImageLabel = tk.Label(root,image = backgroundImage)
         # backgroundImageLabel.place(relheight = 1,relwidth=1)
         # background_image = tk.PhotoImage(file = 'stadium2.png')

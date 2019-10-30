@@ -9,7 +9,6 @@ class main:
         canvas.place(relwidth = 1,relheight = 1)
         self.canvas = canvas
 
-
         #navbar for the admin page 
         navbar = tk.Frame(canvas, bg='#E08F7E')
         navbar.place(rely = 1,relheight = 1,width = 200,anchor = 'sw')
