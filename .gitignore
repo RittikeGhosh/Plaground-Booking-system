@@ -1,4 +1,4 @@
 test.py
 adminLogin3.py
 *.pyc
-__pycache__/*.pyc
+__pycache__
