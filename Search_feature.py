@@ -2,6 +2,7 @@ import tkinter as tk
 from PIL import Image, ImageTk
 import functions.database_operations as dbo
 
+
 # on search button press event
 def on_buttonpress(db_file, value):
     
@@ -30,7 +31,10 @@ def listbox_update(data):
     # put new data
     for item in data:
         listbox.insert('end', item)
-   
+
+# Show search result when Enter key is pressed
+def Enter_pressed(event):
+    on_buttonpress('./db/playgrounds.db', search_box.get())
 
 root = tk.Tk()
 root.title('Online Playground Booking System')
@@ -50,6 +54,7 @@ search_frame.place(relx = 0.5, rely = 0.1, relwidth = 0.75, relheight = 0.08, an
 
 search_box = tk.Entry(search_frame, font = 40)
 search_box.place(relwidth = 0.67, relheight = 1)
+search_box.bind('<Return>', Enter_pressed)
 
 search_button = tk.Button(search_frame, text = 'SEARCH', font = 40, command = lambda: on_buttonpress('./db/playgrounds.db', search_box.get()))
 search_button.place(relx = 0.69, relheight = 1, relwidth = 0.31)
