@@ -1,11 +1,12 @@
 import tkinter as tk
 import time
+import addPlayground 
 
 ## class for admin land page
 class main:
     def __init__(self,root):
         self.root = root
-        canvas = tk.Canvas(root,bg = '#eee')
+        canvas = tk.Canvas(root,bg = '#fff')
         canvas.place(relwidth = 1,relheight = 1)
         self.canvas = canvas
         
@@ -31,7 +32,7 @@ class main:
         link3.place(y = 220,relwidth = 0.94, anchor='n',relx = 0.5, height = 50)
 
         #content frame 
-        contentFrame = tk.Frame(canvas,bg = '#eee')
+        contentFrame = tk.Frame(canvas,bg = '#fff')
         contentFrame.pack(side = 'right',fill = 'both',expand = 'true')
         self.contentFrame = contentFrame
 
@@ -42,19 +43,19 @@ class main:
         
         # self.dashboard()
         self.playgrounds()
-
+        
     def dashboard(self):
         print('dashboard active')
         self.contentCanvas.destroy()
         contentCanvas = tk.Canvas(self.contentFrame, bg='#fff')
         contentCanvas.place(relheight=1, relwidth=1)
         self.contentCanvas = contentCanvas
-        # label = tk.Label(self.contentCanvas,text = 'Dashboard', font = ('Consolas',20))
-        # label.place(relwidth=0.5, relheight=0.4,rely=0.3, relx=0.5, anchor='n')
+        label = tk.Label(self.contentCanvas,text = 'Dashboard', font = ('Consolas',20))
+        label.place(relwidth=0.5, relheight=0.4,rely=0.3, relx=0.5, anchor='n')
 
         #frame for adding graph
-        frame1 = tk.Frame(contentCanvas, bg='red')
-        frame1.place(relwidth=0.8, relheight=0.4, relx=0.1, y = 50)
+        # frame1 = tk.Frame(contentCanvas, bg='red')
+        # frame1.place(relwidth=0.8, relheight=0.4, relx=0.1, y = 50)
 
     def transactions(self):
         print('transaction active')
@@ -71,30 +72,38 @@ class main:
         contentCanvas = tk.Canvas(self.contentFrame, bg='#fff')
         contentCanvas.place(relheight=1, relwidth=1)
         self.contentCanvas = contentCanvas
-        # label = tk.Label(self.contentCanvas, text='PLAYGROUNGS',font=('Consolas', 20))
-        # label.place(relwidth=0.5, relheight=0.4,rely=0.3, relx=0.5, anchor='n')
+
+        #heading for the playground page
         heading = tk.Label(contentCanvas,text = ' PLAYGROUND LIST',
             font = ('Consolas', 20), fg = 'brown',bg = '#fff',anchor = 'w')
-        # heading.place(height = 20,y = 50)
         heading.pack(fill = 'x',pady = 30)
+        #underline for the headline 
         contentCanvas.create_line(15 ,70, 400, 70, width = '3',fill="#888")
-        listFrame = tk.Canvas(contentCanvas,bg = '#fff')
-        listFrame.pack(side = 'left',expand = 1 ,fill = 'both')
 
-        for i in range(20):
+        frame = tk.Frame(contentCanvas,bg = '#fff')
+        frame.pack(side = 'left',fill = 'both', expand = 1)
+        canvas = tk.Canvas(frame,bg = '#fff')
+        listFrame = tk.Frame(canvas,bg = '#fff')
+        yscrollbar = tk.Scrollbar(frame, command = canvas.yview)
+        canvas.config(yscrollcommand = yscrollbar.set)
+        yscrollbar.pack(side = 'right',fill = 'y')
+        canvas.pack(side = 'left',fill = 'both',expand = 1)
+        canvas.update()
+        canvas.create_window((0,0),window=listFrame, anchor='nw',width = canvas.winfo_width())
+        listFrame.bind("<Configure>", lambda event: canvas.config(scrollregion=canvas.bbox("all")))
+
+        addButton = tk.Button(listFrame, text='ADD PLAYGROUND',
+            font=('Consolas', 20),height = 2,relief='raise', cursor = 'hand2',
+            command=lambda: addPlayground.main(self.root), bg='#75E5EE')
+        # label.place(relwidth=0.5, relheight=0.4,rely=0.3, relx=0.5, anchor='n')
+        addButton.pack(fill='x', expand=1, padx=200, pady=10)
+        
+        for i in range(10):
             box = tk.Frame(listFrame,bg = '#eee')
-            box.pack(fill = 'x',expand = 1,padx = 10, pady = 10,ipady = 10)
+            box.pack(fill = 'x',expand = 1,padx = 10, pady = 10,ipady = 50)
             imageBox = tk.Frame(box,bg = 'pink',width = 200)
             imageBox.pack(side = 'left', fill = 'y')
 
-        # for i in range(500):
-        #     label = tk.Label(listFrame,text = f'text {i}',bg = 'red')
-        #     label.pack(fill = 'x',pady = 20)
-        
-        scrollbar = tk.Scrollbar(contentCanvas,orient = 'vertical',command = listFrame.yview)
-        scrollbar.pack(side = 'right' , fill = 'y')
-        listFrame.config(yscrollcommand = scrollbar.set)
-        
 root = tk.Tk()
 root.geometry('1400x1000+200+20')
 root.title('OnlinePlaygroundBookingSystem')
@@ -108,29 +117,3 @@ o = main(root)
 
 print('hello')
 root.mainloop()
-
-# root = Tk()
-# def move_window(event):
-#     root.geometry('+{0}+{1}'.format(event.x_root, event.y_root))
-
-# root.overrideredirect(True) # turns off title bar, geometry
-# root.geometry('400x100+200+200') # set new geometry
-
-# # make a frame for the title bar
-# title_bar = Frame(root, bg='white', relief='raised', bd=2)
-
-# # put a close button on the title bar
-# close_button = Button(title_bar, text='X', command=root.destroy)
-
-# # a canvas for the main area of the window
-# window = Canvas(root, bg='black')
-
-# # pack the widgets
-# title_bar.pack(expand=1, fill=X)
-# close_button.pack(side=RIGHT)
-# window.pack(expand=1, fill=BOTH)
-
-# # bind title bar motion to the move window function
-# title_bar.bind('<B1-Motion>', move_window)
-
-# root.mainloop()
