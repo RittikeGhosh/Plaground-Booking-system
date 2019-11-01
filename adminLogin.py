@@ -1,6 +1,7 @@
 import tkinter as tk
 import time
 import adminLandPage as alp
+from PIL import Image, ImageTk
 
 
 class main:
@@ -11,9 +12,10 @@ class main:
         self.root = root
 
         #canvas as super window
-        canvas = tk.Canvas(root, bd='0', bg='#c7cdff', relief='ridge')
+        canvas = tk.Canvas(root, bd='0',bg = 'blue' ,relief='ridge')
         canvas.place(relheight=1, relwidth=1)
         self.canvas = canvas
+
 
         #set backgrounf image ###### not working  ################
         # backgroundImage = tk.PhotoImage(file = './images/stadium.png')
@@ -22,6 +24,11 @@ class main:
         # background_image = tk.PhotoImage(file = 'stadium2.png')
         # background_label = tk.Label(root, image=background_image)
         # background_label.place(x=0, y=0, relwidth=1, relheight=1)
+        # placing a background image
+        image = Image.open('./images/stadium.png')
+        background_image = ImageTk.PhotoImage(image)
+        background_label = tk.Label(canvas, image=background_image)
+        background_label.place(relheight= 1, relwidth = 1)
 
         # to arrage the widgets  #0a9ead
         shadowFrame = tk.Frame(canvas, bg='#888', height='200', width='300')

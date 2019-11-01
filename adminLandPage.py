@@ -104,16 +104,16 @@ class main:
             imageBox = tk.Frame(box,bg = 'pink',width = 200)
             imageBox.pack(side = 'left', fill = 'y')
 
-root = tk.Tk()
-root.geometry('1400x1000+200+20')
-root.title('OnlinePlaygroundBookingSystem')
-# root.overrideredirect(True)
-#for quitting
-quit = tk.Button(root, bg='#FF3625', cursor='hand2',
-                    text='X', command=root.quit)
-quit.place(relx = 1,anchor = 'ne',width = 70,height = 45)
-# titleBar = tk.
-o = main(root)
+# root = tk.Tk()
+# root.geometry('1400x1000+200+20')
+# root.title('OnlinePlaygroundBookingSystem')
+# # root.overrideredirect(True)
+# #for quitting
+# quit = tk.Button(root, bg='#FF3625', cursor='hand2',
+#                     text='X', command=root.quit)
+# quit.place(relx = 1,anchor = 'ne',width = 70,height = 45)
+# # titleBar = tk.
+# o = main(root)
 
-print('hello')
-root.mainloop()
+# print('hello')
+# root.mainloop()
