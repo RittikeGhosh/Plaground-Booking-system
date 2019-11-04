@@ -5,37 +5,31 @@ from PIL import Image, ImageTk
 
 
 class main:
-    def __init__(self,root):
-
+    def __init__(self,mainRoot):
         self.cred = {'admin':'admin'}
-
+        root = tk.Toplevel(mainRoot)
+        root.geometry('1400x800+250+50')
+        root.title('Admin Login')
         self.root = root
 
         #canvas as super window
-        canvas = tk.Canvas(root, bd='0',bg = 'blue' ,relief='ridge')
+        canvas = tk.Canvas(root, bd='0',bg = 'blue')
         canvas.place(relheight=1, relwidth=1)
         self.canvas = canvas
 
-
-        #set backgrounf image ###### not working  ################
-        # backgroundImage = tk.PhotoImage(file = './images/stadium.png')
-        # backgroundImageLabel = tk.Label(root,image = backgroundImage)
-        # backgroundImageLabel.place(relheight = 1,relwidth=1)
-        # background_image = tk.PhotoImage(file = 'stadium2.png')
-        # background_label = tk.Label(root, image=background_image)
-        # background_label.place(x=0, y=0, relwidth=1, relheight=1)
         # placing a background image
-        image = Image.open('./images/stadium.png')
+        image = Image.open('./images/stadium.jpg')
         background_image = ImageTk.PhotoImage(image)
         background_label = tk.Label(canvas, image=background_image)
+        background_label.image = background_image
         background_label.place(relheight= 1, relwidth = 1)
 
         # to arrage the widgets  #0a9ead
-        shadowFrame = tk.Frame(canvas, bg='#888', height='200', width='300')
-        shadowFrame.place(relx=0.505, rely=0.205,width=300, height=300, anchor='n')
-        frame = tk.Frame(canvas, bg='#0a9ead', height='200', width='300')
-        frame.place(relx=0.5, rely=0.2, width=300, height=300, anchor='n')
-        self.shadowFrame = shadowFrame
+        # shadowFrame = tk.Frame(canvas, bg='#888', height='200', width='300')
+        # shadowFrame.place(relx=0.505, rely=0.305,width=300, height=300, anchor='n')
+        frame = tk.Frame(canvas, bg='#fff', height='200', width='300',relief='sunken',bd = 5)
+        frame.place(relx=0.5, rely=0.3, width=300, height=300, anchor='n')
+        # self.shadowFrame = shadowFrame
         self.frame = frame
 
         #frame heading  #1f4191
@@ -73,16 +67,6 @@ class main:
         loginButton = tk.Button(frame, text='LOGIN', cursor='hand2',width='50', bg='#ff1900', fg='#fff', command=self.loginFunc)
         loginButton.config(font=("Courier", 16))
         loginButton.place(relx=0.1, rely=0.8, relwidth=0.8, relheight=0.1)
-
-        # # clear button
-        # clearButton = tk.Button(root, text='Clear Window',bg='violet', command= self.clearWin)
-        # clearButton.pack(side='bottom')
-        # self.clearButton = clearButton
-
-        #Back to login Page button
-        BackToUserLogin = tk.Button(root, text='Back to User Login',bg='orange', command=root.quit)
-        BackToUserLogin.config(font = ('Courier',13))
-        BackToUserLogin.pack(side='top')
 
     # Function for login verification ...
     def loginFunc(self):
@@ -129,17 +113,7 @@ class main:
         self.canvas.place(relx=-1)
         alp.main(self.root)
 
-    # def __del__(self):
-    #     print('Destructor called')
-    #     self.canvas.destroy()
-
-
 root = tk.Tk()
-root.geometry('1000x800+400+50')
-root.title('OnlinePlaygroundBookingSystem')
-
 o = main(root)
-
-print('hello')
 root.mainloop()
 
