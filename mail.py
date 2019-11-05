@@ -21,7 +21,7 @@ def sendMail(to,state = False):
         msg.add_alternative("""\
             <html>
                 <body>
-                    <h1>Hello World</h1>
+                    <h1>Congratulation You have successfully booked the playground</h1>
                 </body>
             </html>
             """, subtype='html')
@@ -58,4 +58,4 @@ def sendMail(to,state = False):
     if not state:
         return otp
 
-# print(sendMail('rittikghosh12rg@gmail.com'))
+# print(sendMail('rittikghosh12rg@gmail.com',True))
