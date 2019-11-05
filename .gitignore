@@ -2,3 +2,5 @@ test.py
 adminLogin3.py
 *.pyc
 __pycache__
+__pycache__/*.pyc
+__pycache__/adminLandPage.cpython-37.pyc

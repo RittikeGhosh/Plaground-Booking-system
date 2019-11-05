@@ -8,8 +8,8 @@ def sendMail(to,state = False):
     otp = ""
 
     #login credentials
-    sender = 'xxxxxxxxxxxxxxx@gmail.com'
-    password = 'xxxxxxxxxxxxxxxx'
+    sender = 'playgroundbookingsystem@gmail.com'
+    password = 'qwerty@456'
 
     msg = EmailMessage()
     msg['From'] = sender
@@ -21,7 +21,7 @@ def sendMail(to,state = False):
         msg.add_alternative("""\
             <html>
                 <body>
-                    <h1>Hello World</h1>
+                    <h1>Congratulation You have successfully booked the playground</h1>
                 </body>
             </html>
             """, subtype='html')
@@ -45,7 +45,7 @@ def sendMail(to,state = False):
             </body>
             </html>'''
         msg.add_alternative(txt, subtype='html')
-        return otp
+        # return otp
 
     # print(msg)
     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
@@ -58,4 +58,4 @@ def sendMail(to,state = False):
     if not state:
         return otp
 
-print(sendMail('xxxxxxxxxxxx@gmail.com'))
+# print(sendMail('rittikghosh12rg@gmail.com',True))
