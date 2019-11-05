@@ -2,6 +2,7 @@ import tkinter as tk
 from PIL import Image, ImageTk
 import functions.database_operations as dbo
 import fieldDetails as fd
+import filter1 as fl 
 # import filter as fil
 
 
@@ -81,11 +82,7 @@ def search_page(email):
     search_button = tk.Button(search_frame, text='SEARCH', font=40,
                             command=lambda: on_buttonpress('./db/playgrounds.db', search_box.get()))
     search_button.place(relx=0.49, relheight=1, relwidth=0.245)
-
-    search_button = tk.Button(search_frame, text='FILTER', font=40,
-                            command=lambda: on_buttonpress('./db/playgrounds.db', search_box.get()))
-    # search_button = tk.Button(search_frame, text='FILTER', font=40,
-    #                         command=lambda: fil.filter(uid))
+    search_button = tk.Button(search_frame, text='FILTER', font=40,command=lambda: fl.filter(email))
     search_button.place(relx=0.755, relheight=1, relwidth=0.245)
 
     # Frame for showing the search results
