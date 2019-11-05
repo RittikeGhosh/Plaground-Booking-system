@@ -184,12 +184,15 @@ class main:
             else:
                 # try:
                 conn = sqlite3.connect('playgrounds.db')
-                query = f'update playgrounds set f_name = {fieldName},dimension = {fieldDimension},location = {fieldLocation},capacity = {fieldCapacity},sports = {fieldSport},image = {imageLoc},price = {fieldCost},description = {fieldDesc} where f_id = {self.id};'
+                # query = f'update playgrounds set f_name = {fieldName},dimension = {fieldDimension},location = {fieldLocation},capacity = {fieldCapacity},sports = {fieldSport},image = {imageLoc},price = {fieldCost},description = {fieldDesc} where f_id = {self.id};'
+                query = "update playgrounds set f_name = '" + fieldName + "',dimension = '" + fieldDimension + "', location = '" + fieldLocation  + "',capacity ='" + fieldCapacity + "',sports = '" + fieldSport + "',image = '" + imageLoc + "',price = '" + fieldCost + "',description ='" + fieldDesc + "' where f_id = " + str(self.id)
+                print(query)
+
                 conn.execute(query)
                 print('updated')
                 conn.commit()
                 conn.close()
-                # self.top.withdraw()
+                self.top.withdraw()
                 # except:
                     # print('error update')
 

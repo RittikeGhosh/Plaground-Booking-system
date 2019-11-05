@@ -47,7 +47,8 @@ class main:
         self.contentCanvas = contentCanvas
         
         self.dashboard()
-        
+    
+    #dashboasrd feature coming soon :-)
     def dashboard(self):
         print('dashboard active')
         self.contentCanvas.destroy()
@@ -57,6 +58,7 @@ class main:
         label = tk.Label(self.contentCanvas,text = 'Dashboard\nFeature Coming Soon...', font = ('Consolas',20))
         label.place(relwidth=0.5, relheight=0.4,rely=0.3, relx=0.5, anchor='n')
 
+    #dashboasrd feature coming soon :-)
     def transactions(self):
         print('transaction active')
         self.contentCanvas.destroy()
@@ -143,6 +145,7 @@ class main:
             id = tk.Label(update,text = l[i][0])
             id.place(relx = -1)
             box.pack(fill = 'x',expand = 1,padx = 30, pady = 10,ipady = 10)
+            
     #update table
     def update(self,e):
         id = e.widget.winfo_children()[0].cget('text')
@@ -181,9 +184,9 @@ class main:
         else:
             print('the password is incorrect')
 
-# root = tk.Tk()
-# root.geometry('1000x1000+200+20')
-# root.title('OnlinePlaygroundBookingSystem')
-# o = main(root)
-# print('hello')
-# root.mainloop()
+root = tk.Tk()
+root.geometry('1000x1000+200+20')
+root.title('OnlinePlaygroundBookingSystem')
+o = main(root)
+print('hello')
+root.mainloop()
