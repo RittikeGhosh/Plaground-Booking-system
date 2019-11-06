@@ -22,7 +22,8 @@ def filter(es):
     le1=len(r1)
     le2=len(r2)
     print(r1)
-    top=Tk()
+    # top=Tk()
+    top = Toplevel()
     top.geometry("1000x800")
     l1=Label(top,text="WELCOME TO ONLINE PLAYGOUND BOOKING SYSTEM",justify=CENTER,font=("High Tower Text",20))
     l1.place(relx=0.23,rely=0.1)
@@ -60,4 +61,4 @@ def filter(es):
             k=0
             m=0.08+count
             count=count+0.08
-    top.mainloop()
+    # top.mainloop()

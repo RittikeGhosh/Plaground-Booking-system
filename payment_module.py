@@ -1,11 +1,43 @@
 import tkinter as tk
 from PIL import Image, ImageTk
+from tkinter import messagebox
+import sqlite3 as sl
 import random
 import mail
 
+x = 1
 
-def payment(p):
+def payment(email, p):
     # p = 10000
+    def payment_validation():
+        global x
+        if(x <= 3):
+            conn = sl.connect("playgrounds.db")
+            if(price_entry_box.get() != str(p)):
+                messagebox.showinfo("Information", "Please enter correct price....!!!")
+            else:
+                cur = conn.cursor()
+                cur.execute(f"SELECT password FROM user_details WHERE email = '{email}'")
+                password = cur.fetchall()
+                conn.close()
+                print(password)
+                if(password[0][0] == password_entry_box.get()):
+                    for widget in payment_frame.winfo_children():
+                        widget.destroy()
+                    s = tk.Label(payment_frame, text = 'SUCCESSFUL PAYMENT', font = ("Courier", 18))
+                    s.place(relx = 0.5, rely = 0.1, relwidth = 1, relheight = 0.20, anchor = 'n')
+                    tx = random.randint(1000000000, 10000000000)
+                    s = tk.Label(payment_frame, text = f'Tx ID: {tx}', font = ("Courier", 14))
+                    s.place(relx = 0.5, rely = 0.40, relwidth = 1, relheight = 0.16, anchor = 'n')
+                    mail.sendMail(email, True)
+            x += 1
+        else:
+            for widget in payment_frame.winfo_children():
+                widget.destroy()
+            s = tk.Label(payment_frame, text = 'PAYMENT FAILED', font = ("Courier", 18))
+            s.place(relx = 0.5, rely = 0.1, relwidth = 1, relheight = 0.20, anchor = 'n')
+
+    # root = tk.Toplevel()
     root = tk.Toplevel()
     root.title('Online Playground Booking System')
 
@@ -40,7 +72,9 @@ def payment(p):
     password_entry_box.place(relx = 0.5, rely = 0.7, relwidth = 0.60, relheight = 0.08, anchor = 'n')
 
     # Pay button
-    pay_button = tk.Button(payment_frame, text = 'PAY', font = 40, bg = '#80bd35', fg = '#ffffff')
+    pay_button = tk.Button(payment_frame, text = 'PAY', font = 40, bg = '#80bd35', fg = '#ffffff', command = payment_validation)
     pay_button.place(relx = 0.5, rely = 0.9, relwidth = 1, relheight = 0.1, anchor = 'n')
 
     # root.mainloop()
+
+# payment('tanu25.behera@gmail.com', 1000)

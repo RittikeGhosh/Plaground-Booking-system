@@ -20,7 +20,6 @@ def call_description(email, uid):
     query = "select * from playgrounds where f_id =" + str(uid)
     em = database.execute(query)
     x = em.fetchall()
-    print(x)
     
     frame = Frame(frame_can, height=100, width=800, padx=10, pady=10)
     frame.pack()
@@ -138,7 +137,7 @@ def call_description(email, uid):
     sp1.grid(row=14)
 
     def paymentportal():
-        pm.payment(perhour)
+        pm.payment(email, perhour)
 
     frame7 = Frame(frame2, pady=10)
     frame7.grid(row=15, column=1, sticky=W+E+N+S)

@@ -30,7 +30,7 @@ def search_page(email):
 
     # Show search result when Enter key is pressed
     def Enter_pressed(event):
-        on_buttonpress('./db/playgrounds.db', search_box.get())
+        on_buttonpress('playgrounds.db', search_box.get())
 
     # updating the listbox
     def listbox_update(data):
@@ -49,12 +49,12 @@ def search_page(email):
         # print('(event) previous:', event.widget.get('active'))
         # print('(event)  current:', event.widget.get(event.widget.curselection()))
         # print('---')
-        connection = dbo.db_connection('./db/playgrounds.db')
+        connection = dbo.db_connection('playgrounds.db')
         s = event.widget.get(event.widget.curselection())
         print(s)
         select_item = dbo.retrive_f_id(connection, s)
         print(select_item)
-        # fd.call_description(email, select_item)
+        fd.call_description(email, select_item)
 
         
     root = tk.Toplevel()
@@ -80,7 +80,7 @@ def search_page(email):
     search_box.bind('<Return>', Enter_pressed)
 
     search_button = tk.Button(search_frame, text='SEARCH', font=40,
-                            command=lambda: on_buttonpress('./db/playgrounds.db', search_box.get()))
+                            command=lambda: on_buttonpress('playgrounds.db', search_box.get()))
     search_button.place(relx=0.49, relheight=1, relwidth=0.245)
     search_button = tk.Button(search_frame, text='FILTER', font=40,command=lambda: fl.filter(email))
     search_button.place(relx=0.755, relheight=1, relwidth=0.245)
