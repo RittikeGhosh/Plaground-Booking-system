@@ -29,7 +29,7 @@ class main:
         frame.pack(fill='x',padx=10,pady=10,ipady=20)
         label = tk.Label(frame,bg="#fff",text='PLAYGROUND ID :',anchor='w',font=(' ',12))
         label.place(height=30, relwidth=0.4, rely=0.5, relx=0, anchor='w')
-        fieldId = tk.Label(frame,font=(' ',11),text= id )
+        fieldId = tk.Label(frame,font=(' ',11),text= 'ID' )
         fieldId.place(height=30,relwidth = 0.6,rely=0.5,relx=1,anchor ='e')
         self.fieldId = fieldId
         #frame for the field name
@@ -40,55 +40,112 @@ class main:
         fieldName = tk.Entry(frame,font=(' ',11),relief='ridge',bd=2)
         fieldName.place(height=30,relwidth = 0.6,rely=0.5,relx=1,anchor ='e')
         self.fieldName = fieldName
-        #frame for the field image
-        frame=tk.Frame(canvas,bg='#fff')
-        frame.pack(fill='x',padx=10,pady=10,ipady=20)
-        label = tk.Label(frame,bg="#fff",text='IMAGE PATH :',anchor='w',font=(' ',12,'bold'))
-        label.place(height=30, relwidth=0.4, rely=0.5, relx=0, anchor='w')
-        imageLoc = tk.Entry(frame,font=(' ',11),relief='ridge',bd=2)
-        imageLoc.place(height=30,relwidth = 0.6,rely=0.5,relx=1,anchor ='e')
-        imageLoc.bind('<Return>',self.updateImage)
+       	#frame for the field image
+        frame = tk.Frame(canvas, bg='#fff')
+        frame.pack(fill='x', padx=10, pady=10, ipady=20)
+        label = tk.Label(frame, bg="#fff", text='IMAGE PATH :',
+                         anchor='w', font=(' ', 12, 'bold'))
+        label.place(height=30, relwidth=0.15, rely=0.5, relx=0, anchor='w')
+        imageLoc = tk.Entry(frame, font=(' ', 11), relief='ridge', bd=2)
+        imageLoc.place(height=30, relwidth=0.349,
+                       rely=0.5, relx=0.15, anchor='w')
+        imageLoc.bind('<Return>', self.updateImage)
+        label = tk.Label(frame, bg="#fff", text='SPORT :',
+                         anchor='w', font=(' ', 12, 'bold'))
+        label.place(height=30, relwidth=0.15, rely=0.5, relx=0.5, anchor='w')
+        fieldSport = tk.Entry(frame, font=(' ', 11), relief='ridge', bd=2)
+        fieldSport.place(height=30, relwidth=0.349,
+                         rely=0.5, relx=0.65, anchor='w')
+        self.fieldSport = fieldSport
         self.imageLoc = imageLoc
         #frame for the field sport
-        frame=tk.Frame(canvas,bg='#fff')
-        frame.pack(fill='x',padx=10,pady=10,ipady=20)
-        label = tk.Label(frame,bg="#fff",text='SPORT :',anchor='w',font=(' ',12,'bold'))
-        label.place(height=30, relwidth=0.4, rely=0.5, relx=0, anchor='w')
-        fieldSport = tk.Entry(frame,font=(' ',11),relief='ridge',bd=2)
-        fieldSport.place(height=30,relwidth = 0.6,rely=0.5,relx=1,anchor ='e')
-        self.fieldSport = fieldSport
-        #frame for the dimension
-        frame=tk.Frame(canvas,bg='#fff')
-        frame.pack(fill='x',padx=10,pady=10,ipady=20)
-        label = tk.Label(frame,bg="#fff",text='DIMENSION :',anchor='w',font=(' ',12,'bold'))
-        label.place(height=30, relwidth=0.4, rely=0.5, relx=0, anchor='w')
-        fieldDimension = tk.Entry(frame,font=(' ',11),relief='ridge',bd=2)
-        fieldDimension.place(height=30,relwidth = 0.6,rely=0.5,relx=1,anchor ='e')
-        self.fieldDimension = fieldDimension
-        #frame for the loaction
-        frame=tk.Frame(canvas,bg='#fff')
-        frame.pack(fill='x',padx=10,pady=10,ipady=20)
-        label = tk.Label(frame, bg="#fff", text='LOCATION :', anchor='w',font=(' ', 12, 'bold'))
-        label.place(height=30, relwidth=0.4, rely=0.5, relx=0, anchor='w')
-        fieldLocation = tk.Entry(frame,font=(' ',11),relief='ridge',bd=2)
-        fieldLocation.place(height=30,relwidth = 0.6,rely=0.5,relx=1,anchor ='e')
+
+        #frame for the field sport
+        frame = tk.Frame(canvas, bg='#fff')
+        frame.pack(fill='x', padx=10, pady=10, ipady=20)
+        label = tk.Label(frame, bg="#fff", text='LOCATION :',
+                         anchor='w', font=(' ', 12, 'bold'))
+        label.place(height=30, relwidth=0.15, rely=0.5, relx=0, anchor='w')
+        fieldLocation = tk.Entry(frame, font=(' ', 11), relief='ridge', bd=2)
+        fieldLocation.place(height=30, relwidth=0.349,
+                            rely=0.5, relx=0.15, anchor='w')
+        label = tk.Label(frame, bg="#fff", text='DIMENSION :',
+                         anchor='w', font=(' ', 12, 'bold'))
+        label.place(height=30, relwidth=0.15, rely=0.5, relx=0.5, anchor='w')
+        fieldDimension = tk.Entry(frame, font=(' ', 11), relief='ridge', bd=2)
+        fieldDimension.place(height=30, relwidth=0.349,
+                             rely=0.5, relx=0.65, anchor='w')
         self.fieldLocation = fieldLocation
-        #frame for the capacity
-        frame=tk.Frame(canvas,bg='#fff')
-        frame.pack(fill='x',padx=10,pady=10,ipady=20)
-        label = tk.Label(frame,bg="#fff",text='CAPACITY :',anchor='w',font=(' ',12,'bold'))
-        label.place(height=30, relwidth=0.4, rely=0.5, relx=0, anchor='w')
-        fieldCapacity = tk.Entry(frame,font=(' ',11),relief='ridge',bd=2)
-        fieldCapacity.place(height=30,relwidth = 0.6,rely=0.5,relx=1,anchor ='e')
-        self.fieldCapacity = fieldCapacity
+        self.fieldDimension = fieldDimension
+        #frame for the dimension
+
         #frame for the Cost
-        frame=tk.Frame(canvas,bg='#fff')
-        frame.pack(fill='x',padx=10,pady=10,ipady=20)
-        label = tk.Label(frame,bg="#fff",text='COST :',anchor='w',font=(' ',12,'bold'))
-        label.place(height=30, relwidth=0.4, rely=0.5, relx=0, anchor='w')
-        fieldCost = tk.Entry(frame,font=(' ',11),relief='ridge',bd=2)
-        fieldCost.place(height=30,relwidth = 0.6,rely=0.5,relx=1,anchor ='e')
+        frame = tk.Frame(canvas, bg='#fff')
+        frame.pack(fill='x', padx=10, pady=10, ipady=20)
+        label = tk.Label(frame, bg="#fff", text='COST :',
+                         anchor='w', font=(' ', 12, 'bold'))
+        label.place(height=30, relwidth=0.15, rely=0.5, relx=0, anchor='w')
+        fieldCost = tk.Entry(frame, font=(' ', 11), relief='ridge', bd=2)
+        fieldCost.place(height=30, relwidth=0.349,
+                        rely=0.5, relx=0.15, anchor='w')
+        label = tk.Label(frame, bg="#fff", text='CAPACITY :',
+                         anchor='w', font=(' ', 12, 'bold'))
+        label.place(height=30, relwidth=0.15, rely=0.5, relx=0.5, anchor='w')
+        fieldCapacity = tk.Entry(frame, font=(' ', 11), relief='ridge', bd=2)
+        fieldCapacity.place(height=30, relwidth=0.349,
+                            rely=0.5, relx=0.65, anchor='w')
         self.fieldCost = fieldCost
+        self.fieldCapacity = fieldCapacity
+        #frame for the capacity
+        # #frame for the field image
+        # frame=tk.Frame(canvas,bg='#fff')
+        # frame.pack(fill='x',padx=10,pady=10,ipady=20)
+        # label = tk.Label(frame,bg="#fff",text='IMAGE PATH :',anchor='w',font=(' ',12,'bold'))
+        # label.place(height=30, relwidth=0.4, rely=0.5, relx=0, anchor='w')
+        # imageLoc = tk.Entry(frame,font=(' ',11),relief='ridge',bd=2)
+        # imageLoc.place(height=30,relwidth = 0.6,rely=0.5,relx=1,anchor ='e')
+        # imageLoc.bind('<Return>',self.updateImage)
+        # self.imageLoc = imageLoc
+        # #frame for the field sport
+        # frame=tk.Frame(canvas,bg='#fff')
+        # frame.pack(fill='x',padx=10,pady=10,ipady=20)
+        # label = tk.Label(frame,bg="#fff",text='SPORT :',anchor='w',font=(' ',12,'bold'))
+        # label.place(height=30, relwidth=0.4, rely=0.5, relx=0, anchor='w')
+        # fieldSport = tk.Entry(frame,font=(' ',11),relief='ridge',bd=2)
+        # fieldSport.place(height=30,relwidth = 0.6,rely=0.5,relx=1,anchor ='e')
+        # self.fieldSport = fieldSport
+        # #frame for the dimension
+        # frame=tk.Frame(canvas,bg='#fff')
+        # frame.pack(fill='x',padx=10,pady=10,ipady=20)
+        # label = tk.Label(frame,bg="#fff",text='DIMENSION :',anchor='w',font=(' ',12,'bold'))
+        # label.place(height=30, relwidth=0.4, rely=0.5, relx=0, anchor='w')
+        # fieldDimension = tk.Entry(frame,font=(' ',11),relief='ridge',bd=2)
+        # fieldDimension.place(height=30,relwidth = 0.6,rely=0.5,relx=1,anchor ='e')
+        # self.fieldDimension = fieldDimension
+        # #frame for the loaction
+        # frame=tk.Frame(canvas,bg='#fff')
+        # frame.pack(fill='x',padx=10,pady=10,ipady=20)
+        # label = tk.Label(frame, bg="#fff", text='LOCATION :', anchor='w',font=(' ', 12, 'bold'))
+        # label.place(height=30, relwidth=0.4, rely=0.5, relx=0, anchor='w')
+        # fieldLocation = tk.Entry(frame,font=(' ',11),relief='ridge',bd=2)
+        # fieldLocation.place(height=30,relwidth = 0.6,rely=0.5,relx=1,anchor ='e')
+        # self.fieldLocation = fieldLocation
+        # #frame for the capacity
+        # frame=tk.Frame(canvas,bg='#fff')
+        # frame.pack(fill='x',padx=10,pady=10,ipady=20)
+        # label = tk.Label(frame,bg="#fff",text='CAPACITY :',anchor='w',font=(' ',12,'bold'))
+        # label.place(height=30, relwidth=0.4, rely=0.5, relx=0, anchor='w')
+        # fieldCapacity = tk.Entry(frame,font=(' ',11),relief='ridge',bd=2)
+        # fieldCapacity.place(height=30,relwidth = 0.6,rely=0.5,relx=1,anchor ='e')
+        # self.fieldCapacity = fieldCapacity
+        # #frame for the Cost
+        # frame=tk.Frame(canvas,bg='#fff')
+        # frame.pack(fill='x',padx=10,pady=10,ipady=20)
+        # label = tk.Label(frame,bg="#fff",text='COST :',anchor='w',font=(' ',12,'bold'))
+        # label.place(height=30, relwidth=0.4, rely=0.5, relx=0, anchor='w')
+        # fieldCost = tk.Entry(frame,font=(' ',11),relief='ridge',bd=2)
+        # fieldCost.place(height=30,relwidth = 0.6,rely=0.5,relx=1,anchor ='e')
+        # self.fieldCost = fieldCost
         #frame for the FIeld description
         frame = tk.Frame(canvas, bg='#fff')
         frame.pack(fill='x', padx=10, pady=10, ipady=20)
@@ -110,16 +167,18 @@ class main:
                            text='Save', cursor='hand2', bg='#000',fg='#fff',command=self.save)
         submit.place(height=40,relwidth = 0.4,relx=0.5,rely=1,anchor ='s')
 
+        #when called for updation
         if(id > 0):
             # self.fieldId.config(text = id)
             conn = sqlite3.connect('playgrounds.db')
             query = f'select * from playgrounds where f_id = {id};'
             a = conn.execute(query)
             l = a.fetchall()
-            print(l)
+            # print(l)
             conn.close()
             print(id)
             # self.top.quit()
+            self.fieldId.config(text= f'#{id}')
             self.fieldName.insert(0,str(l[0][1]))
             self.fieldDimension.insert(0,str(l[0][2]))
             self.fieldLocation.insert(0,str(l[0][3]))
@@ -139,12 +198,12 @@ class main:
             except:
                 widget.config(text='Wrong Path or Format\nImage Will Appear here', image='')
                 print('wrong path')
+    
     #for the image update
     def updateImage(self,e):
         widget = self.image
         try:
             path = e.widget.get()
-            # path = './images/stadium.jpg'
             image = Image.open(path)
             background_image = ImageTk.PhotoImage(image)
             widget.config(text='', image=background_image)
