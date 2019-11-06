@@ -113,7 +113,7 @@ class main:
         self.canvas.place(relx=-1)
         alp.main(self.root)
 
-root = tk.Tk()
-o = main(root)
-root.mainloop()
+# root = tk.Tk()
+# o = main(root)
+# root.mainloop()
 
