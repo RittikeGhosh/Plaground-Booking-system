@@ -242,7 +242,7 @@ def adminlogin():  # called on clickin the admin login button. To be edited by t
 
 
 frame = Frame(window, width=600, height=600, bg="yellow", padx=100, pady=50)
-frame.pack()
+frame.pack(pady = 50)
 
 head = Label(frame, text="LOG IN", bg="yellow")
 admin = Button(frame, bg="black", fg="white", text="ADMIN LOGIN",
