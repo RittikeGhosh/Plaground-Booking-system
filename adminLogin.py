@@ -44,7 +44,7 @@ class main:
         self.failLabel = failLabel
 
         # placing text box and label for username
-        adminUserName = tk.Entry(frame, bg="#ffffff", justify='center', highlightcolor='blue')
+        adminUserName = tk.Entry(frame, bg="#ffffff", justify='center')
         adminPassword = tk.Entry(frame, bg="#ffffff", justify='center', show='*')
         self.adminUserName = adminUserName
         self.adminPassword = adminPassword
