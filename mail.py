@@ -58,5 +58,3 @@ def sendMail(to,state = False):
     #for returning the otp to the signup page for verification
     if not state:
         return otp
-
-# print(sendMail('rittikghosh12rg@gmail.com',True))
