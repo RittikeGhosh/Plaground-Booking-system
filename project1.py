@@ -4,7 +4,14 @@ from pandas import *
 import sqlite3
 from PIL import Image, ImageTk
 import fieldDetails as fd
-def city(s,e):
+import filter1
+
+
+def city(s,e,win):
+    def back():
+        top.destroy()
+        filter1.filter(email)
+    win.destroy()
     email=e
     j=1
     k=0
@@ -47,10 +54,17 @@ def city(s,e):
         button.bind('<Button-1>',lambda e : call(e))
         label=Label(button,text=int(result[i-1][0]))
         button.pack(side=BOTTOM,pady=10,padx=100)
+    back = Button(top,text = 'Back',command = back,bg = 'orange', fg = '#fff',font = (' ',16))
+    back.place(relx = 0, rely = 0, anchor = 'nw',width = 100, height = 50)
     top.mainloop()
     base.commit()
     base.close()
-def sports(s,e):
+
+def sports(s,e,win):
+    def back():
+        top.destroy()
+        filter1.filter(email)
+    win.destroy()
     email=e
     j=1
     k=0
@@ -93,6 +107,9 @@ def sports(s,e):
         button.bind('<Button-1>',lambda e : call(e))
         label=Label(button,text=int(result[i-1][0]))
         button.pack(side=BOTTOM,pady=10,padx=100)
+    back = Button(top,text = 'Back',command = back,bg = 'orange', fg = '#fff',font = (' ',16))
+    back.place(relx = 0, rely = 0, anchor = 'nw',width = 100, height = 50)
+
     top.mainloop()
     base.commit()
     base.close()

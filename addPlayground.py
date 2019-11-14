@@ -24,6 +24,7 @@ class main:
             bg = '#eee',relief = 'raise',font = (' ',16),fg = '#000')
         image.place(relwidth = 1,relheight = 1)
         self.image = image
+
         #frame for the field id
         frame=tk.Frame(canvas,bg='blue')
         frame.pack(fill='x',padx=10,pady=10,ipady=20)
@@ -32,6 +33,7 @@ class main:
         fieldId = tk.Label(frame,font=(' ',11),text= 'ID' )
         fieldId.place(height=30,relwidth = 0.6,rely=0.5,relx=1,anchor ='e')
         self.fieldId = fieldId
+
         #frame for the field name
         frame=tk.Frame(canvas,bg='#fff')
         frame.pack(fill='x',padx=10,pady=10,ipady=20)
@@ -40,6 +42,7 @@ class main:
         fieldName = tk.Entry(frame,font=(' ',11),relief='ridge',bd=2)
         fieldName.place(height=30,relwidth = 0.6,rely=0.5,relx=1,anchor ='e')
         self.fieldName = fieldName
+
        	#frame for the field image
         frame = tk.Frame(canvas, bg='#fff')
         frame.pack(fill='x', padx=10, pady=10, ipady=20)
@@ -97,55 +100,7 @@ class main:
         self.fieldCost = fieldCost
         self.fieldCapacity = fieldCapacity
         #frame for the capacity
-        # #frame for the field image
-        # frame=tk.Frame(canvas,bg='#fff')
-        # frame.pack(fill='x',padx=10,pady=10,ipady=20)
-        # label = tk.Label(frame,bg="#fff",text='IMAGE PATH :',anchor='w',font=(' ',12,'bold'))
-        # label.place(height=30, relwidth=0.4, rely=0.5, relx=0, anchor='w')
-        # imageLoc = tk.Entry(frame,font=(' ',11),relief='ridge',bd=2)
-        # imageLoc.place(height=30,relwidth = 0.6,rely=0.5,relx=1,anchor ='e')
-        # imageLoc.bind('<Return>',self.updateImage)
-        # self.imageLoc = imageLoc
-        # #frame for the field sport
-        # frame=tk.Frame(canvas,bg='#fff')
-        # frame.pack(fill='x',padx=10,pady=10,ipady=20)
-        # label = tk.Label(frame,bg="#fff",text='SPORT :',anchor='w',font=(' ',12,'bold'))
-        # label.place(height=30, relwidth=0.4, rely=0.5, relx=0, anchor='w')
-        # fieldSport = tk.Entry(frame,font=(' ',11),relief='ridge',bd=2)
-        # fieldSport.place(height=30,relwidth = 0.6,rely=0.5,relx=1,anchor ='e')
-        # self.fieldSport = fieldSport
-        # #frame for the dimension
-        # frame=tk.Frame(canvas,bg='#fff')
-        # frame.pack(fill='x',padx=10,pady=10,ipady=20)
-        # label = tk.Label(frame,bg="#fff",text='DIMENSION :',anchor='w',font=(' ',12,'bold'))
-        # label.place(height=30, relwidth=0.4, rely=0.5, relx=0, anchor='w')
-        # fieldDimension = tk.Entry(frame,font=(' ',11),relief='ridge',bd=2)
-        # fieldDimension.place(height=30,relwidth = 0.6,rely=0.5,relx=1,anchor ='e')
-        # self.fieldDimension = fieldDimension
-        # #frame for the loaction
-        # frame=tk.Frame(canvas,bg='#fff')
-        # frame.pack(fill='x',padx=10,pady=10,ipady=20)
-        # label = tk.Label(frame, bg="#fff", text='LOCATION :', anchor='w',font=(' ', 12, 'bold'))
-        # label.place(height=30, relwidth=0.4, rely=0.5, relx=0, anchor='w')
-        # fieldLocation = tk.Entry(frame,font=(' ',11),relief='ridge',bd=2)
-        # fieldLocation.place(height=30,relwidth = 0.6,rely=0.5,relx=1,anchor ='e')
-        # self.fieldLocation = fieldLocation
-        # #frame for the capacity
-        # frame=tk.Frame(canvas,bg='#fff')
-        # frame.pack(fill='x',padx=10,pady=10,ipady=20)
-        # label = tk.Label(frame,bg="#fff",text='CAPACITY :',anchor='w',font=(' ',12,'bold'))
-        # label.place(height=30, relwidth=0.4, rely=0.5, relx=0, anchor='w')
-        # fieldCapacity = tk.Entry(frame,font=(' ',11),relief='ridge',bd=2)
-        # fieldCapacity.place(height=30,relwidth = 0.6,rely=0.5,relx=1,anchor ='e')
-        # self.fieldCapacity = fieldCapacity
-        # #frame for the Cost
-        # frame=tk.Frame(canvas,bg='#fff')
-        # frame.pack(fill='x',padx=10,pady=10,ipady=20)
-        # label = tk.Label(frame,bg="#fff",text='COST :',anchor='w',font=(' ',12,'bold'))
-        # label.place(height=30, relwidth=0.4, rely=0.5, relx=0, anchor='w')
-        # fieldCost = tk.Entry(frame,font=(' ',11),relief='ridge',bd=2)
-        # fieldCost.place(height=30,relwidth = 0.6,rely=0.5,relx=1,anchor ='e')
-        # self.fieldCost = fieldCost
+
         #frame for the FIeld description
         frame = tk.Frame(canvas, bg='#fff')
         frame.pack(fill='x', padx=10, pady=10, ipady=20)
@@ -176,7 +131,7 @@ class main:
             l = a.fetchall()
             # print(l)
             conn.close()
-            print(id)
+            # print(id)
             # self.top.quit()
             self.fieldId.config(text= f'#{id}')
             self.fieldName.insert(0,str(l[0][1]))
@@ -194,7 +149,7 @@ class main:
                 background_image = ImageTk.PhotoImage(image)
                 widget.config(text='', image=background_image)
                 widget.image = background_image
-                print('Image Updated', path)
+                print('Image Set')
             except:
                 widget.config(text='Wrong Path or Format\nImage Will Appear here', image='')
                 print('wrong path')
@@ -224,7 +179,7 @@ class main:
         fieldDesc = self.fieldDesc.get()
         password = self.adminPass.get()
         l = [(fieldName,fieldDimension,fieldLocation,fieldCapacity,fieldSport,imageLoc,fieldCost,fieldDesc)]
-        print(l,password)
+        # print(l,password)
         
         #admin password verification 
         if(password == 'admin'):
@@ -241,26 +196,17 @@ class main:
                 except:
                     print('error insert')
             else:
-                # try:
-                conn = sqlite3.connect('playgrounds.db')
-                # query = f'update playgrounds set f_name = {fieldName},dimension = {fieldDimension},location = {fieldLocation},capacity = {fieldCapacity},sports = {fieldSport},image = {imageLoc},price = {fieldCost},description = {fieldDesc} where f_id = {self.id};'
-                query = "update playgrounds set f_name = '" + fieldName + "',dimension = '" + fieldDimension + "', location = '" + fieldLocation  + "',capacity ='" + fieldCapacity + "',sports = '" + fieldSport + "',image = '" + imageLoc + "',price = '" + fieldCost + "',description ='" + fieldDesc + "' where f_id = " + str(self.id)
-                print(query)
-
-                conn.execute(query)
-                print('updated')
-                conn.commit()
-                conn.close()
-                self.top.withdraw()
-                # except:
-                    # print('error update')
+                try:
+                    conn = sqlite3.connect('playgrounds.db')
+                    query = "update playgrounds set f_name = '" + fieldName + "',dimension = '" + fieldDimension + "', location = '" + fieldLocation  + "',capacity ='" + fieldCapacity + "',sports = '" + fieldSport + "',image = '" + imageLoc + "',price = '" + fieldCost + "',description ='" + fieldDesc + "' where f_id = " + str(self.id)
+                    conn.execute(query)
+                    print('updated')
+                    conn.commit()
+                    conn.close()
+                    self.top.withdraw()
+                except:
+                    print('error update')
 
         else:
             print('The password is incorrect')
 
-# root = tk.Tk()
-# # root.geometry('1000x1000+200+20')
-# root.title('OnlinePlaygroundBookingSystem')
-# o = main(root)
-# print('hello')
-# root.mainloop()

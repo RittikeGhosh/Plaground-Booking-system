@@ -5,6 +5,8 @@ from pandas import *
 import sqlite3
 from PIL import Image, ImageTk
 def filter(es):
+    # if(win):
+    #     win.destroy()
     j=0
     k=0
     m=0
@@ -34,10 +36,10 @@ def filter(es):
     l2.place(rely=0.2,relx=0.05)
     def sendCity(e):
         widget = e.widget.winfo_children()[0].cget('text')
-        py.city(widget,email)        
+        py.city(widget,email,top)        
     def sendSport(e):
         widget = e.widget.winfo_children()[0].cget('text')
-        py.sports(widget,email)
+        py.sports(widget,email,top)
 
     for i in range(le1):
         b2 =  Button(top, text =r1[i][0],cursor = "heart",bd="6")

@@ -8,8 +8,9 @@ def sendMail(to,state = False):
     otp = ""
 
     #login credentials
-    sender = 'playgroundbookingsystem@gmail.com'
-    password = 'qwerty@456'
+    # store the mail and password
+    sender = 'xxxxxxxx@gmail.com'
+    password = 'xxxxxxxxxxxxxxxxx'
 
     msg = EmailMessage()
     msg['From'] = sender

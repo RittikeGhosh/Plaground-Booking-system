@@ -73,9 +73,9 @@ class main:
         username = self.adminUserName.get()
         password = self.adminPassword.get()
 
-        print('data is :', username, ' ', password)
+        # print('data is :', username, ' ', password)
         if(username == '' or password == ''):
-            print('Empty field')
+            # print('Empty field')
             self.failLabel.config(text='Fields cannot be empty', fg='red')
         else:
             # if(username == 'admin' and password == 'admin'):
@@ -92,7 +92,7 @@ class main:
 
     # to clear the fields before user input
     def clear(self,event):
-        print('....',event.type)
+        # print('....',event.type)
         event.widget.delete(0, len(event.widget.get()))
         event.widget.config(bd=5)
 
@@ -100,7 +100,7 @@ class main:
     def clearWin(self):
         self.root.update()
         time.sleep(0.8)
-        print('all clear')
+        # print('all clear')
         winWidth = self.canvas.winfo_width()
         dur = 1
         sub = dur/winWidth
@@ -112,8 +112,4 @@ class main:
             time.sleep(sub)
         self.canvas.place(relx=-1)
         alp.main(self.root)
-
-# root = tk.Tk()
-# o = main(root)
-# root.mainloop()
 

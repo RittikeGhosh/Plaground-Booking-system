@@ -183,10 +183,3 @@ class main:
             self.playgrounds()
         else:
             print('the password is incorrect')
-
-# root = tk.Tk()
-# root.geometry('1000x1000+200+20')
-# root.title('OnlinePlaygroundBookingSystem')
-# o = main(root)
-# print('hello')
-# root.mainloop()

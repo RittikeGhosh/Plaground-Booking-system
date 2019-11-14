@@ -6,7 +6,7 @@ import filter1 as fl
 # import filter as fil
 
 
-def search_page(email):
+def search_page(email,win):
     # on search button press event
     def on_buttonpress(db_file, value):
         value = value.strip().lower()
@@ -56,8 +56,9 @@ def search_page(email):
         print(select_item)
         fd.call_description(email, select_item)
 
-        
-    root = tk.Toplevel()
+    win.destroy()
+    root = tk.Tk()
+    # root = tk.Toplevel()
     root.title('Online Playground Booking System')
 
     canvas = tk.Canvas(root, height=700, width=800)
@@ -94,4 +95,4 @@ def search_page(email):
     listbox.place(relwidth=1, relheight=1)
     listbox.bind('<<ListboxSelect>>', on_select)
 
-    # root.mainloop()
+    root.mainloop()

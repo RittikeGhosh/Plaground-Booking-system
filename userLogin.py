@@ -130,6 +130,8 @@ def signup():
                         "insert into user_details values (?,?,?,?,?,?)", l)
                     database.commit()
                     database.close()
+                    email.destroy()
+                    reg.destroy()
                     messagebox.showinfo(
                         "Information", "Congratualtions! You have successfully resgistered....!!!")
             label = Label(frame1, text="Enter the OTP : ")
@@ -217,7 +219,7 @@ def login():
                 elif(e2.get() == i[5]):
                     messagebox.showinfo(
                         "Information", "You have successfully logged in....!!!")
-                    sf.search_page(e1.get())
+                    sf.search_page(e1.get(),window)
                 else:
                     messagebox.showwarning(
                         "Warning", "You have entered the wrong password or this username does not exist!!!")
